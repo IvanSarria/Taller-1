@@ -1,0 +1,33 @@
+valor1 = int(input("Digite el primer valor: "))
+valor2 = int(input("Digite el segundo valor: "))
+valor3 = int(input("Digite el tercer valor: "))
+
+def devolver_distintos(V1,V2,V3):
+    if V1+V2+V3 > 15: 
+        if V1>V2 and V1>V3:
+            return V1
+        elif V2>V1 and V2>V3:
+            return V2
+        else:
+            return V3
+    elif V1+V2+V3 < 10: 
+        if V1<V2 and V1<V3:
+            return V1
+        elif V2<V1 and V2<V3:
+            return V2
+        else:
+            return V3
+    elif V1+V2+V3 >= 10 and V1+V2+V3<=15:
+        if V1>V2 and V1<V3:
+            return V1
+        elif V1>V3 and V1<V2:
+            return V1
+        elif V2>V1 and V2<V3:
+            return V2
+        elif V2>V3 and V2<V1:
+            return V2
+        elif V3>V1 and V3<V2:
+            return V3
+        else: 
+            return V3
+print(f"El resultado es: {devolver_distintos(valor1,valor2,valor3)}")
