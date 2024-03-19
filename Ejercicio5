@@ -1,0 +1,45 @@
+print(f"*** Vamos a jugar el juego del ahorcado ***")
+print(f"*** Adivina la palabra, tienes 5 intentos para adivinar ***")
+
+lista = ["colombia", "ecuador", "brasil"]
+
+from random import *
+
+def palabra_aleatoria(): 
+    Aleatorio = choice(lista)
+    return Aleatorio
+
+
+def adivinar_palabra(palabra):
+    letras_correctas = []
+    letras_incorrectas = []
+    vidas = 5
+    
+    while vidas > 0:
+        Resultado = ""
+        for letra in palabra:
+            if letra in letras_correctas:
+                Resultado += letra
+            else:
+                Resultado += "_"
+        print(Resultado)
+        
+        if Resultado == palabra:
+            print(f"Muy bien, la palabra correcta es: {palabra}")
+            break
+        
+        letra = input("Ingresa una letra: ").lower()
+        
+        if letra in palabra:
+            letras_correctas.append(letra)
+        else:
+            print(f"La letra {letra} no se encuentra en la palabra")
+            letras_incorrectas.append(letra)
+            vidas -= 1
+            print(f"Has perdido una vida, vidas restantes: {vidas}")
+
+    if vidas == 0:
+        print(f"Lo siento mucho, tienes {vidas} vidas.La palabra es:", palabra)
+        
+palabra_secreta = palabra_aleatoria()
+adivinar_palabra(palabra_secreta)
