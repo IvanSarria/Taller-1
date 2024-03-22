@@ -1,0 +1,53 @@
+# Practica Herencia 1
+
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+    def correr(self, kilometros):
+        print(f"{self.nombre} corrio {kilometros} Kilometros")
+
+class Alumno(Persona):
+    def __init__(self,nombre,edad,altura):
+        super().__init__(nombre, edad)
+        self.altura = altura
+
+Alumno1 = Alumno("juan",20,1.80)
+Alumno1.correr(5)
+
+
+# Practica Herencia 2 
+
+class Mascota:
+    def __init__(self,edad,nombre,cantidad_patas):
+        self.edad = edad
+        self.nombre = nombre
+        self.cantidad_patas = cantidad_patas
+    def Saltar(self,metros):
+        print(f"{self.nombre} salta {metros} metros")
+
+class Perro(Mascota):
+    def __init__(self, edad, nombre, cantidad_patas):
+        super().__init__(edad, nombre, cantidad_patas)
+
+Perro1 = Perro(3,"otelo",4)
+Perro1.Saltar(2)
+
+#Practica Herencia 3
+
+class Vehiculo:
+    def __init__(self,marca,cilindraje):
+        self.marca = marca
+        self.cilindraje = cilindraje
+    
+    def acelerar(self):
+        print(f"El Vehiculo marca {self.marca} en marcha")
+
+    def frenar(self):
+        pass
+class Automovil(Vehiculo):
+    def __init__(self, marca, cilindraje):
+        super().__init__(marca, cilindraje)
+
+Automovil1 = Automovil("Chevrolet",1.6)
+Automovil1.acelerar()
